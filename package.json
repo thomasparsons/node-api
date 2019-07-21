@@ -1,0 +1,19 @@
+{
+  "name": "node-api",
+  "version": "0.1.0",
+  "description": "node-api",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thomasparsons/node-api.git"
+  },
+  "author": "Tom Parsons",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
