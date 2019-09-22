@@ -1,20 +1,15 @@
-const express = require("express")
-const http = require("http")
-const bodyParser = require("body-parser")
-
-const slackRoutes = require("./slackRoutes")
+import express from "express"
+import bodyParser from "body-parser"
+import routes from "./handlers/rest"
 
 const app = express()
 
-app.start = async() => {
-  app.use(bodyParser.json())
-  app.use(bodyParser.urlencoded({extended: true}))
-  app.use(slackRoutes)
-  const server = http.createServer(app)
-  server.listen(process.env.PORT || 5000)
-  console.log(`Server started on port ${process.env.PORT || 5000}`)
-}
+const {PORT = 5000} = process.env
 
-app.start()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(routes)
 
-module.exports = app
+app.listen(PORT, () => {
+  console.log(`server started at http://localhost: ${PORT}`)
+})

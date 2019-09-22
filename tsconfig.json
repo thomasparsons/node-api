@@ -4,7 +4,6 @@
     // Basic Options
     "target": "es2015",
     "jsx": "react",
-    "noEmit": true,
     "declaration": true,
 
     // Strict Type-Checking Options
@@ -31,9 +30,12 @@
     "emitDecoratorMetadata": true,
 
     // React Native
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "sourceMap": true,
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/static"
   ]
 }

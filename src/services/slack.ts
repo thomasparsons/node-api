@@ -1,5 +1,7 @@
+import {Slack} from "./types"
+
 const service = {
-  genericResponse: (slackReqObj) => {
+  genericResponse: (slackReqObj: Slack) => {
     const slackResponse = {
       attachments: [{
         color: "#000000",
@@ -13,4 +15,4 @@ const service = {
   }
 }
 
-module.exports = service
+export default service
