@@ -1,0 +1,100 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a basic, type safe node api",
+    "version": "1.0.0",
+    "title": "Toms Node API"
+  },
+  "host": "google.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Slack",
+      "description": "Slack api calls"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Slack"
+        ],
+        "summary": "Hello world slack bot",
+        "description": "Attaching to a slack slash command will make you a hello world bot",
+        "operationId": "genericResponse",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/Slack"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Slack": {
+      "type": "object",
+      "properties": {
+        "channel": {
+          "type": "string",
+          "example": "abc_123"
+        },
+        "response_type": {
+          "type": "string",
+          "example": "in_channel"
+        },
+        "attachments": {
+          "type": "array",
+          "xml": {
+            "name": "attachment",
+            "wrapped": true
+          },
+          "items": {
+            "$ref": "#/definitions/Attachment"
+          }
+        }
+      }
+    },
+    "Attachment": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string",
+          "example": "#000000"
+        },
+        "text": {
+          "type": "string",
+          "example": "hello world"
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
