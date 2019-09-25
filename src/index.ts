@@ -1,5 +1,5 @@
-import express from "express"
 import bodyParser from "body-parser"
+import express from "express"
 import routes from "./handlers/rest"
 
 const app = express()
@@ -11,5 +11,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(routes)
 
 app.listen(PORT, () => {
+  // tslint:disable-next-line no-console
   console.log(`server started at http://localhost: ${PORT}`)
 })
