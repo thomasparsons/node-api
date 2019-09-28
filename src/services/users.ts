@@ -1,32 +1,25 @@
-import db from "../utils/firebase"
+import {DocumentSnapshot, QuerySnapshot} from "@firebase/firestore-types"
 
+import db from "../utils/firebase"
 import {User} from "./types"
 
 const usersRef = db.collection("users")
 
 const usersService = {
-  getUsers: (): Promise<User[]> => {
-    return usersRef.get().then((snapshot: any) => {
+  getUserById: (_: any, params: {userId: string}): Promise<User | Error> => {
+    return usersRef.doc(params.userId).get().then((snapshot: DocumentSnapshot) => {
       if (!snapshot.exists) {
-        return {
-          error: "No such document!",
-        }
-      }
-
-      console.log("Document data:", snapshot.data())
-      return {
-        users: [],
-      }
-    })
-  },
-  getUserById: (_: any, params: {userId: string}): Promise<User | null> => {
-    return usersRef.doc(params.userId).get().then((snapshot: any) => {
-      if (!snapshot.exists) {
-        return {
-          error: "No such user exists!",
-        }
+        throw new Error("No such user exists")
       }
       return snapshot.data()
+    })
+  },
+
+  getUsers: (): Promise<User[]> => {
+    return usersRef.get().then((snapshot: QuerySnapshot) => {
+      const users: any[] = []
+      snapshot.forEach((doc: DocumentSnapshot) => users.push(doc.data()))
+      return users
     })
   },
 }
