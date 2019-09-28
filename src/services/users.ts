@@ -1,4 +1,4 @@
-import {DocumentSnapshot, QuerySnapshot} from "@firebase/firestore-types"
+import {DocumentSnapshot} from "@firebase/firestore-types"
 
 import db from "../utils/firebase"
 import {User} from "./types"
@@ -12,8 +12,8 @@ const usersService = {
     )
   },
 
-  getUserById: (_: any, params: {userId: string}): Promise<User | Error> => {
-    return usersRef.doc(params.userId).get().then((snapshot: DocumentSnapshot) => {
+  getUserById: (_: any, params: {userId: string}): Promise<User> => {
+    return usersRef.doc(params.userId).get().then((snapshot: any) => {
       if (!snapshot.exists) {
         throw new Error("No such user exists")
       }
@@ -26,7 +26,7 @@ const usersService = {
   },
 
   getUsers: (): Promise<User[]> => {
-    return usersRef.get().then((snapshot: QuerySnapshot) => {
+    return usersRef.get().then((snapshot: any) => {
       const users: any[] = []
       snapshot.forEach((doc: DocumentSnapshot) => {
         const user = {
