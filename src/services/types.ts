@@ -12,3 +12,8 @@ export interface SlackResponse {
   channel: string,
   response_type: string
 }
+
+export interface User {
+  firstname: string,
+  lastname: string
+}
