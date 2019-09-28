@@ -1,6 +1,6 @@
 import express, {NextFunction, Request, Response} from "express"
 
-import {airtable, slack} from "../services"
+import {firebase, slack} from "../services"
 
 const router = express.Router()
 
@@ -18,7 +18,7 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
 })
 
 router.get("/data", async (req: Request, res: Response, next: NextFunction) => {
-  return routerHandler(req, res, next, airtable.genericResponse)
+  return routerHandler(req, res, next, firebase.genericResponse)
 })
 
 export default router
