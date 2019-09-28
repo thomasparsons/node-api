@@ -16,10 +16,11 @@
   "author": "Tom Parsons",
   "license": "ISC",
   "dependencies": {
-    "@types/express": "^4.17.0",
     "axios": "^0.19.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "firebase-admin": "^8.6.0",
+    "json-loader": "^0.5.7",
     "raw-loader": "^3.1.0",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.1.2",
@@ -29,6 +30,8 @@
     "webpack": "^4.40.2"
   },
   "devDependencies": {
+    "@firebase/firestore-types": "^1.5.0",
+    "@types/express": "^4.17.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
     "firebase": "^7.0.0",
