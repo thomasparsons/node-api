@@ -25,4 +25,8 @@ router.get("/users/:userId", async (req: Request, res: Response, next: NextFunct
   return routerHandler(req, res, next, users.getUserById)
 })
 
+router.post("/users/new", async (req: Request, res: Response, next: NextFunction) => {
+  return routerHandler(req, res, next, users.createUser)
+})
+
 export default router
