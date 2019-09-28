@@ -1,7 +1,7 @@
 // const assert = require("assert")
 
 test("an array is an array", () => {
-  expect([]).toEqual(["a"])
+  expect([]).toEqual([])
 })
 
 // describe("test an error", () => {
