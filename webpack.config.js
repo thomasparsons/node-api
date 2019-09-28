@@ -21,13 +21,11 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: [
-          "ts-loader",
-        ],
+        use: ["ts-loader"],
       }, {
         test: /\.txt$/i,
         use: "raw-loader",
-      },
+      }
     ]
   },
   watch: NODE_ENV === "development"
