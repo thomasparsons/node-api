@@ -1,6 +1,6 @@
 import {Slack, SlackResponse} from "./types"
 
-const slackService = {
+const airtableService = {
   genericResponse: (slackReqObj: Slack): Promise<SlackResponse> => {
     const slackResponse = {
       attachments: [{
@@ -15,4 +15,4 @@ const slackService = {
   },
 }
 
-export default slackService
+export default airtableService
