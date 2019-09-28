@@ -20,7 +20,7 @@ const usersService = {
 
       return {
         ...snapshot.data(),
-        id: snapshot.id,
+        userId: snapshot.id,
       }
     })
   },
@@ -30,8 +30,8 @@ const usersService = {
       const users: any[] = []
       snapshot.forEach((doc: DocumentSnapshot) => {
         const user = {
-          id: doc.id,
           ...doc.data(),
+          userId: doc.id,
         }
         users.push(user)
       })

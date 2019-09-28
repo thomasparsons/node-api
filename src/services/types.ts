@@ -14,7 +14,7 @@ export interface SlackResponse {
 }
 
 export interface User {
-  id?: string,
   firstname: string,
-  lastname: string
+  lastname: string,
+  userId?: string
 }
