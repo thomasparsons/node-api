@@ -29,7 +29,7 @@ const usersService = {
     return Promise.resolve([{
       firstname: "",
       lastname: "",
-      userId: process.env.NODE_ENV || "not set",
+      userId: process.env.FIREBASE_PROJECT_ID || "not set",
     }])
     // return usersRef.get().then((snapshot: any) => {
     //   const users: any[] = []
