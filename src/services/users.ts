@@ -1,11 +1,11 @@
 // import {DocumentSnapshot} from "@firebase/firestore-types"
 
 // import db from "../utils/firebase"
-// import {User} from "./types"
+import {User} from "./types"
 
 // const usersRef = db.collection("users")
 
-// const usersService = {
+const usersService = {
 //   createUser: (req: User): Promise<User> => {
 //     return usersRef.add(req).then((res: any) =>
 //       usersService.getUserById(null, {userId: res.id}),
@@ -25,20 +25,25 @@
 //     })
 //   },
 
-//   getUsers: (): Promise<User[]> => {
-//     return usersRef.get().then((snapshot: any) => {
-//       const users: any[] = []
-//       snapshot.forEach((doc: DocumentSnapshot) => {
-//         const user = {
-//           ...doc.data(),
-//           userId: doc.id,
-//         }
-//         users.push(user)
-//       })
+  getUsers: (): Promise<User[]> => {
+    return Promise.resolve([{
+      firstname: "",
+      lastname: "",
+      userId: process.env.NODE_ENV || "not set",
+    }])
+    // return usersRef.get().then((snapshot: any) => {
+    //   const users: any[] = []
+    //   snapshot.forEach((doc: DocumentSnapshot) => {
+    //     const user = {
+    //       ...doc.data(),
+    //       userId: doc.id,
+    //     }
+    //     users.push(user)
+    //   })
 
-//       return users
-//     })
-//   },
-// }
+    //   return users
+    // })
+  },
+}
 
-// export default usersService
+export default usersService

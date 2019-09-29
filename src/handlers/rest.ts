@@ -1,6 +1,6 @@
 import express, {NextFunction, Request, Response} from "express"
 
-import {slack} from "../services"
+import {slack, users} from "../services"
 
 const router = express.Router()
 
@@ -17,9 +17,9 @@ router.get("/", async (req: Request, res: Response, next: NextFunction) => {
   return routerHandler(req, res, next, slack.genericResponse)
 })
 
-// router.get("/users", async (req: Request, res: Response, next: NextFunction) => {
-//   return routerHandler(req, res, next, users.getUsers)
-// })
+router.get("/users", async (req: Request, res: Response, next: NextFunction) => {
+  return routerHandler(req, res, next, users.getUsers)
+})
 
 // router.get("/users/:userId", async (req: Request, res: Response, next: NextFunction) => {
 //   return routerHandler(req, res, next, users.getUserById)
