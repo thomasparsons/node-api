@@ -1,12 +1,12 @@
-import * as admin from "firebase-admin"
+// import * as admin from "firebase-admin"
 
-admin.initializeApp({
-  credential: admin.credential.cert({
-    clientEmail: process.env.firebase_client_email,
-    privateKey: process.env.firebase_private_key,
-    projectId: process.env.firebase_project_id,
-  }),
-  databaseURL: `https://${process.env.project_id}.firebaseio.com`,
-})
+// admin.initializeApp({
+//   credential: admin.credential.cert({
+//     clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+//     privateKey: process.env.FIREBASE_PRIVATE_KEY,
+//     projectId: process.env.FIREBASE_PROJECT_ID,
+//   }),
+//   databaseURL: `https://${process.env.FIREBASE_PROJECT_ID}.firebaseio.com`,
+// })
 
-export default admin.firestore()
+// export default admin.firestore()
