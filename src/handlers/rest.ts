@@ -21,12 +21,12 @@ router.get("/users", async (req: Request, res: Response, next: NextFunction) => 
   return routerHandler(req, res, next, users.getUsers)
 })
 
-// router.get("/users/:userId", async (req: Request, res: Response, next: NextFunction) => {
-//   return routerHandler(req, res, next, users.getUserById)
-// })
+router.get("/users/:userId", async (req: Request, res: Response, next: NextFunction) => {
+  return routerHandler(req, res, next, users.getUserById)
+})
 
-// router.post("/users/new", async (req: Request, res: Response, next: NextFunction) => {
-//   return routerHandler(req, res, next, users.createUser)
-// })
+router.post("/users/new", async (req: Request, res: Response, next: NextFunction) => {
+  return routerHandler(req, res, next, users.createUser)
+})
 
 export default router
