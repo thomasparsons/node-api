@@ -1,7 +1,8 @@
+import dotenv from "dotenv"
 import * as admin from "firebase-admin"
 
 if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config()
+  dotenv.config()
 }
 
 const {FIREBASE_CLIENT_EMAIL = "", FIREBASE_PRIVATE_KEY = "", FIREBASE_PROJECT_ID = ""} = process.env
