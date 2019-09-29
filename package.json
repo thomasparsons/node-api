@@ -16,8 +16,10 @@
   "author": "Tom Parsons",
   "license": "ISC",
   "dependencies": {
+    "@types/dotenv": "^6.1.1",
     "axios": "^0.19.0",
     "body-parser": "^1.18.3",
+    "dotenv": "^8.1.0",
     "express": "^4.16.4",
     "firebase-admin": "^8.6.0",
     "raw-loader": "^3.1.0",

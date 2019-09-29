@@ -1,9 +1,7 @@
 const path = require("path")
 const nodeExternals = require("webpack-node-externals")
 
-const {
-  NODE_ENV = "production"
-} = process.env
+const {NODE_ENV = "development"} = process.env
 
 module.exports = {
   entry: "./src/index.ts",
@@ -28,5 +26,5 @@ module.exports = {
       }
     ]
   },
-  watch: NODE_ENV === "development"
+  // watch: NODE_ENV === "development"
 }

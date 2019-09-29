@@ -1,12 +1,19 @@
+import dotenv from "dotenv"
 import * as admin from "firebase-admin"
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config()
+}
+
+const {FIREBASE_CLIENT_EMAIL = "", FIREBASE_PRIVATE_KEY = "", FIREBASE_PROJECT_ID = ""} = process.env
 
 admin.initializeApp({
   credential: admin.credential.cert({
-    clientEmail: process.env.firebase_client_email,
-    privateKey: process.env.firebase_private_key,
-    projectId: process.env.firebase_project_id,
+    clientEmail: FIREBASE_CLIENT_EMAIL,
+    privateKey: FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+    projectId: FIREBASE_PROJECT_ID,
   }),
-  databaseURL: `https://${process.env.project_id}.firebaseio.com`,
+  databaseURL: `https://${FIREBASE_PROJECT_ID}.firebaseio.com`,
 })
 
 export default admin.firestore()

@@ -1,5 +1,3 @@
-import {DocumentSnapshot} from "@firebase/firestore-types"
-
 import db from "../utils/firebase"
 import {User} from "./types"
 
@@ -7,13 +5,13 @@ const usersRef = db.collection("users")
 
 const usersService = {
   createUser: (req: User): Promise<User> => {
-    return usersRef.add(req).then((res: any) =>
+    return usersRef.add(req).then((res) =>
       usersService.getUserById(null, {userId: res.id}),
     )
   },
 
-  getUserById: (_: any, params: {userId: string}): Promise<User> => {
-    return usersRef.doc(params.userId).get().then((snapshot: any) => {
+  getUserById: (_: any, params: {userId: string}): Promise<any> => {
+    return usersRef.doc(params.userId).get().then((snapshot) => {
       if (!snapshot.exists) {
         throw new Error("No such user exists")
       }
@@ -26,9 +24,9 @@ const usersService = {
   },
 
   getUsers: (): Promise<User[]> => {
-    return usersRef.get().then((snapshot: any) => {
-      const users: any[] = []
-      snapshot.forEach((doc: DocumentSnapshot) => {
+    return usersRef.get().then((snapshot) => {
+      const users: User[] = []
+      snapshot.forEach((doc) => {
         const user = {
           ...doc.data(),
           userId: doc.id,
