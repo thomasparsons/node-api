@@ -16,3 +16,5 @@ FIREBASE_CLIENT_EMAIL
 FIREBASE_PRIVATE_KEY
 FIREBASE_PROJECT_ID
 ```
+
+To run locally, create a `.env` file in the root directory (`touch .env`) and set your variables
