@@ -1,4 +1,4 @@
-export interface Slack {
+export interface SlackRequest {
   channel_id: string
 }
 

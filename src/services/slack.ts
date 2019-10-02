@@ -1,7 +1,7 @@
-import {Slack, SlackResponse} from "./types"
+import {SlackRequest, SlackResponse} from "./types"
 
 const slackService = {
-  genericResponse: (slackReqObj: Slack): Promise<SlackResponse> => {
+  genericResponse: (slackReqObj: SlackRequest): Promise<SlackResponse> => {
     const slackResponse = {
       attachments: [{
         color: "#000000",
