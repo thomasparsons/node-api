@@ -4,13 +4,13 @@ import {User} from "./types"
 const usersRef = db.collection("users")
 
 const usersService = {
-  createUser: (req: User): Promise<User> => {
+  createUser: (req: User): Promise<User | Error> => {
     return usersRef.add(req).then((res) =>
       usersService.getUserById(null, {userId: res.id}),
     )
   },
 
-  getUserById: (_: any, params: {userId: string}): Promise<any> => {
+  getUserById: (_: any, params: {userId: string}): Promise<User | Error> => {
     return usersRef.doc(params.userId).get().then((snapshot) => {
       if (!snapshot.exists) {
         throw new Error("No such user exists")
