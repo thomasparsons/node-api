@@ -5,7 +5,7 @@ This application uses Yarn, Webpack, Firestore/Firebase, Jest and CircleCi
 ## To Run
 
 `yarn`<br/>
-`yarn start` - this runs a webpack build (`/build.index.js`)
+`yarn start` - this runs a webpack build (`/build/index.js`)
 
 ## Environment Variables
 
